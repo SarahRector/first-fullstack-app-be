@@ -19,15 +19,20 @@ async function run() {
                   hash VARCHAR(512) NOT NULL
                 );
 
+                CREATE TABLE positions (
+                  id SERIAL PRIMARY KEY NOT NULL,
+                  position VARCHAR(206) NOT NULL
+                );
+
                 CREATE TABLE derby_players (
                     id SERIAL PRIMARY KEY NOT NULL,
                     derby_name VARCHAR(512) NOT NULL,
                     jersey_number INTEGER NOT NULL,
                     is_retired BOOLEAN NOT NULL,
-                    position VARCHAR(206) NOT NULL,
+                    position_id INTEGER NOT NULL REFERENCES positions(id),
                     user_id INTEGER NOT NULL REFERENCES users(id)
-            );
-        `);
+                  );
+            `);
 
     console.log('create tables complete', getEmoji(), getEmoji(), getEmoji());
   }
