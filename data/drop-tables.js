@@ -13,6 +13,7 @@ async function run() {
             DROP TABLE IF EXISTS positions CASCADE;
             DROP TABLE IF EXISTS derby_players;
         `);
+        
 
     console.log(' drop tables complete', getEmoji(), getEmoji(), getEmoji());
   }
